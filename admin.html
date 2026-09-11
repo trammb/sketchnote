@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quản trị nội dung — Vẽ cùng Trâm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+<link rel="icon" href="assets/favicon.png">
+</head>
+<body>
+
+<div class="topbar">
+  <h1>⚙️ Quản trị nội dung</h1>
+  <span class="save-state" id="save-state">Đang tải…</span>
+  <span class="grow"></span>
+  <button class="btn btn--light" id="btn-save" type="button" title="Ghi thẳng vào data.js (Ctrl+S)">💾 Lưu vào data.js</button>
+  <button class="btn btn--light" id="btn-preview" type="button">Xem trước</button>
+  <button class="btn btn--light" id="btn-export" type="button">Tải file / Sao lưu</button>
+</div>
+
+<div class="layout">
+  <nav class="sidenav" aria-label="Mục quản trị">
+    <ul>
+      <li><button type="button" data-tab="chung" class="active">Thông tin chung</button></li>
+      <li><button type="button" data-tab="dichvu">Dịch vụ <span class="count" id="c-svc"></span></button></li>
+      <li><button type="button" data-tab="khoahoc">Khoá học <span class="count" id="c-course"></span></button></li>
+      <li><button type="button" data-tab="feedback">Feedback <span class="count" id="c-fb"></span></button></li>
+      <li><button type="button" data-tab="thuvien">Thư viện ảnh <span class="count" id="c-img"></span></button></li>
+      <li><button type="button" data-tab="xuat">Lưu file &amp; sao lưu</button></li>
+    </ul>
+  </nav>
+
+  <div class="panel-wrap">
+
+    <!-- ============ THÔNG TIN CHUNG ============ -->
+    <section class="panel active" id="tab-chung">
+      <header>
+        <h2>Thông tin chung</h2>
+        <p>Email, mạng xã hội và link board Pinterest. Đây là những thứ bắt buộc phải điền đúng trước khi đưa web lên mạng.</p>
+      </header>
+
+      <div class="row row--2">
+        <div class="field">
+          <label for="f-email">Email liên hệ</label>
+          <input type="email" id="f-email" data-bind="SITE.email" placeholder="ten@email.com">
+          <p class="hint">Mọi nút “Liên hệ / Nhận tư vấn” sẽ mở email này.</p>
+        </div>
+        <div class="field">
+          <label for="f-form">Link form đăng ký (không bắt buộc)</label>
+          <input type="url" id="f-form" data-bind="SITE.registerForm" placeholder="https://forms.gle/...">
+          <p class="hint">Có link thì nút mở form; để trống thì mở email.</p>
+        </div>
+      </div>
+
+      <div class="row row--3">
+        <div class="field">
+          <label for="f-ig">Instagram</label>
+          <input type="url" id="f-ig" data-bind="SITE.instagram" placeholder="https://instagram.com/...">
+        </div>
+        <div class="field">
+          <label for="f-tt">TikTok</label>
+          <input type="url" id="f-tt" data-bind="SITE.tiktok" placeholder="https://tiktok.com/@...">
+        </div>
+        <div class="field">
+          <label for="f-zalo">Zalo</label>
+          <input type="url" id="f-zalo" data-bind="SITE.zalo" placeholder="https://zalo.me/...">
+          <p class="hint">Để trống thì ẩn khỏi footer.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:1.6rem">Board Pinterest</h3>
+      <div class="field">
+        <label for="f-pin">Link board</label>
+        <input type="url" id="f-pin" data-bind="PINTEREST_BOARD_URL" placeholder="https://www.pinterest.com/tendangnhap/ten-board/">
+        <p class="hint">Board phải ở chế độ công khai. Dán nguyên link trên thanh địa chỉ khi mở board là được.</p>
+      </div>
+      <div class="row row--3">
+        <div class="field">
+          <label for="f-pw">Rộng mỗi ảnh (px)</label>
+          <input type="number" id="f-pw" data-bind="PINTEREST_WIDGET.imageWidth" min="60" max="236">
+        </div>
+        <div class="field">
+          <label for="f-bw">Rộng board (px)</label>
+          <input type="number" id="f-bw" data-bind="PINTEREST_WIDGET.boardWidth" min="200" max="1000">
+        </div>
+        <div class="field">
+          <label for="f-bh">Cao board (px)</label>
+          <input type="number" id="f-bh" data-bind="PINTEREST_WIDGET.boardHeight" min="200" max="1000">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DỊCH VỤ ============ -->
+    <section class="panel" id="tab-dichvu">
+      <header>
+        <h2>Dịch vụ</h2>
+        <p>Mỗi dịch vụ hiện ở hai chỗ: thẻ tóm tắt trên đầu trang và phần chi tiết bên dưới. <strong>Mã dịch vụ</strong> là địa chỉ liên kết riêng, ví dụ mã <code>training</code> cho link <code>…/#training</code> để gửi thẳng cho khách.</p>
+      </header>
+      <div id="list-services"></div>
+      <div class="add-row"><button class="btn btn--ghost" type="button" data-add="services">+ Thêm dịch vụ</button></div>
+    </section>
+
+    <!-- ============ KHOÁ HỌC ============ -->
+    <section class="panel" id="tab-khoahoc">
+      <header>
+        <h2>Khoá học Udemy</h2>
+        <p>Thẻ giới thiệu khoá học, bấm vào sẽ mở Udemy ở tab mới.</p>
+      </header>
+      <div id="list-courses"></div>
+      <div class="add-row"><button class="btn btn--ghost" type="button" data-add="courses">+ Thêm khoá học</button></div>
+    </section>
+
+    <!-- ============ FEEDBACK ============ -->
+    <section class="panel" id="tab-feedback">
+      <header>
+        <h2>Feedback học viên</h2>
+        <p>Phần này chỉ hiển thị chữ, không kèm ảnh.</p>
+        <div class="callout warn">
+          <p><strong>Lưu ý:</strong> feedback đang có sẵn là nội dung mẫu để xem bố cục, không phải người thật. Hãy thay bằng feedback thật hoặc xoá hết trước khi đưa web lên mạng.</p>
+        </div>
+      </header>
+      <div id="list-feedbacks"></div>
+      <div class="add-row"><button class="btn btn--ghost" type="button" data-add="feedbacks">+ Thêm feedback</button></div>
+    </section>
+
+    <!-- ============ THƯ VIỆN ẢNH ============ -->
+    <section class="panel" id="tab-thuvien">
+      <header>
+        <h2>Thư viện ảnh</h2>
+        <p>Ảnh phải nằm sẵn trong thư mục <code>assets/images/</code> hoặc <code>assets/illustrations/</code>, ở đây chỉ khai báo đường dẫn. Ảnh chưa có sẽ hiện ô nền nhạt chứ không vỡ hình.</p>
+      </header>
+
+      <h3>Ảnh các buổi live recording</h3>
+      <p class="hint" style="margin-bottom:.8rem">Hiện ở cuối phần dịch vụ.</p>
+      <div id="list-live"></div>
+      <div class="add-row" style="margin-bottom:2rem"><button class="btn btn--ghost" type="button" data-add="live">+ Thêm ảnh sự kiện</button></div>
+
+      <h3>Ảnh dự phòng cho thư viện Pinterest</h3>
+      <p class="hint" style="margin-bottom:.8rem">Chỉ hiện khi widget Pinterest tải chậm hoặc bị chặn.</p>
+      <div id="list-fallback"></div>
+      <div class="add-row"><button class="btn btn--ghost" type="button" data-add="fallback">+ Thêm ảnh dự phòng</button></div>
+    </section>
+
+    <!-- ============ XUẤT FILE ============ -->
+    <section class="panel" id="tab-xuat">
+      <header>
+        <h2>Lưu file &amp; sao lưu</h2>
+        <p>Bình thường chỉ cần bấm <strong>Lưu vào data.js</strong> ở thanh trên cùng (hoặc nhấn Ctrl+S) là xong. Phần này dành cho lúc cần tải file về, sao lưu, hoặc trình duyệt không ghi file được.</p>
+      </header>
+
+      <div class="callout" id="file-info">Đang kiểm tra…</div>
+
+      <h3>File đang gắn</h3>
+      <div class="add-row" style="margin-bottom:1.6rem">
+        <button class="btn btn--ghost" type="button" id="btn-pickfile">Chọn file data.js</button>
+        <button class="btn btn--ghost" type="button" id="btn-forget">Bỏ liên kết file</button>
+      </div>
+
+      <h3>Tải về &amp; sao lưu</h3>
+      <div class="add-row" style="margin-bottom:1.2rem">
+        <button class="btn" type="button" id="btn-download">⬇ Tải file data.js</button>
+        <button class="btn btn--ghost" type="button" id="btn-copy">Chép nội dung</button>
+        <button class="btn btn--ghost" type="button" id="btn-import">Nạp từ file data.js có sẵn</button>
+        <button class="btn btn--danger" type="button" id="btn-reset">Xoá nháp, quay về bản gốc</button>
+        <input type="file" id="file-input" accept=".js,text/javascript" hidden>
+      </div>
+
+      <div class="callout">
+        <p>Sau khi lưu, nhớ đưa lại thư mục web lên Netlify/Vercel thì khách mới thấy nội dung mới.</p>
+      </div>
+
+      <label for="export-preview" style="font-weight:800;color:var(--ink);font-size:.8rem">Nội dung file sẽ xuất ra</label>
+      <textarea id="export-preview" readonly spellcheck="false"></textarea>
+    </section>
+
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- data.js nạp trước để lấy nội dung hiện tại làm điểm xuất phát -->
+<script src="data.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

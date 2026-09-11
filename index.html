@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trâm · Sketchnote — Biến ý tưởng thành hình ảnh</title>
+<meta name="description" content="Trâm — UX-UI designer, 6 năm dạy sketchnote cho trẻ em và người lớn. Dạy sketchnote, calligraphy, training doanh nghiệp, live recording sự kiện và nhận vẽ theo yêu cầu.">
+<meta name="theme-color" content="#0E5A66">
+<meta property="og:title" content="Trâm · Sketchnote — Biến ý tưởng thành hình ảnh">
+<meta property="og:description" content="Dạy sketchnote, calligraphy, training doanh nghiệp, live recording và vẽ theo yêu cầu.">
+<meta property="og:type" content="website">
+<!-- 👉 THAY: ảnh chia sẻ mạng xã hội (1200x630) -->
+<meta property="og:image" content="assets/images/og-cover.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Dancing Script = chữ viết tay cho tiêu đề · Mulish = chữ thân bài (đồng bộ trammb.com)
+     Cả hai font đều có bộ ký tự tiếng Việt đầy đủ (subset "vietnamese") -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!-- 👉 THAY: favicon, bỏ file vào assets/ -->
+<link rel="icon" href="assets/favicon.png">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua, tới nội dung chính</a>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Điều hướng chính">
+    <ul class="nav-links nav-links--left">
+      <li><a href="#top">Trang chủ</a></li>
+      <li><a href="#dich-vu">Dịch vụ</a></li>
+      <li><a href="#thu-vien">Thư viện</a></li>
+    </ul>
+
+    <a class="logo" href="#top">
+      <span class="top">Sketchnote</span>
+      <span class="mid">Vẽ cùng Trâm</span>
+      <span class="bottom">&amp; Calligraphy</span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-label="Mở menu"><span></span><span></span><span></span></button>
+
+    <ul class="nav-links nav-links--right">
+      <li><a href="#khoa-hoc">Khoá học</a></li>
+      <li><a href="#ve-tram">Về Trâm</a></li>
+      <li><a href="#lien-he">Liên hệ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <h1 class="display">Vẽ tay. Mê sketchnote.</h1>
+      <p class="lead">Mình là Trâm — 6 năm dạy sketchnote cho học viên từ trẻ em đến người lớn. Xem dịch vụ, đặt lớp học, hoặc nhờ mình vẽ riêng cho bạn một thứ gì đó.</p>
+      <div class="hero-actions">
+        <a class="btn" data-site-register href="#">Đặt lịch học</a>
+        <a class="btn btn--sky" href="#dich-vu">Xem dịch vụ</a>
+      </div>
+      <p class="hero-badge">
+        <span class="dots">★★★★★</span><br>
+        <b>6 năm</b> đứng lớp · <b>5</b> dịch vụ · <b>2</b> khoá học Udemy
+      </p>
+    </div>
+
+    <!-- 👉 THAY MINH HOẠ / ẢNH THẬT Ở ĐÂY
+         Đang dùng hình vẽ SVG. Khi có ảnh thật, thay bằng:
+           <img src="assets/images/hero.jpg" alt="Sketchnote của Trâm"> -->
+    <div class="hero-art">
+      <img src="assets/illustrations/scene-hero.svg" alt="Minh hoạ lớp học sketchnote: giá vẽ, học viên ngồi vẽ, lớp online">
+    </div>
+    <div class="wave" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===================== 4 ĐIỂM MẠNH ===================== -->
+  <section class="strip">
+    <div class="wrap strip-grid" id="strip"></div>
+  </section>
+
+  <!-- ===================== DẢI TEAL ===================== -->
+  <section class="band">
+    <div class="wrap">
+      <div class="band-card">
+        <img src="assets/illustrations/scene-band.svg" alt="Minh hoạ buổi vẽ trực tiếp tại sự kiện và workshop sketchnote">
+      </div>
+      <div class="band-caption">
+        <h2 class="display">Vẽ xấu cũng không sao</h2>
+        <p>Sáu năm qua, gần như học viên nào cũng mở đầu bằng câu đó. Rồi ai cũng vẽ được — vì sketchnote không cần đẹp, chỉ cần rõ.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DỊCH VỤ ===================== -->
+  <section class="section" id="dich-vu">
+    <div class="wrap center">
+      <span class="eyebrow">Dịch vụ</span>
+      <h2 class="display">Mình có thể giúp gì cho bạn?</h2>
+      <p class="lead">Năm hình thức làm việc — cho người học một mình, một lớp nhỏ, một team công ty, một ban tổ chức sự kiện, hoặc khi bạn cần đặt vẽ riêng.</p>
+      <!-- Render từ mảng SERVICES trong data.js -->
+      <div class="grid grid--auto" id="service-cards" style="margin-top:2.2rem"></div>
+    </div>
+  </section>
+
+  <!-- ===================== CHI TIẾT DỊCH VỤ ===================== -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <!-- Render từ SERVICES trong data.js. Mỗi dịch vụ có anchor riêng:
+           #day-sketchnote #calligraphy #training #live-recording #ve-theo-yeu-cau -->
+      <div id="service-details"></div>
+
+      <!-- Gallery riêng của Live recording — lấy từ LIVE_GALLERY trong data.js -->
+      <div style="margin-top:2.5rem" class="center">
+        <span class="eyebrow">Đã từng vẽ</span>
+        <h2 class="display">Một vài sự kiện</h2>
+        <div class="gallery-grid" id="live-gallery" style="margin-top:1.6rem;text-align:left"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THƯ VIỆN PINTEREST ===================== -->
+  <section class="section" id="thu-vien" style="background:var(--white)">
+    <div class="wrap center">
+      <span class="eyebrow">Thư viện</span>
+      <h2 class="display">Những trang mình đã vẽ</h2>
+      <p class="lead">Nơi mình lưu lại các trang sketchnote và những thứ truyền cảm hứng. Board được cập nhật liên tục.</p>
+
+      <!-- ============================================================
+           👉 THAY LINK BOARD trong data.js → biến PINTEREST_BOARD_URL
+           Widget dựng bằng script chính chủ của Pinterest
+           (assets.pinterest.com/js/pinit.js — cùng code mà
+           widgets.pinterest.com sinh ra ở tab "Board").
+           Nếu tải chậm hoặc bị chặn, khối fallback bên dưới tự hiện.
+      ============================================================= -->
+      <div id="pinterest-embed" style="margin-top:2rem">
+        <p class="pin-loading">Đang tải thư viện từ Pinterest…</p>
+      </div>
+      <div id="pinterest-fallback" hidden style="margin-top:2rem">
+        <div class="gallery-grid"></div>
+      </div>
+
+      <p style="margin-top:1.8rem">
+        <a class="btn btn--outline btn--sm" data-pin-link href="#" target="_blank" rel="noopener">Xem thêm trên Pinterest</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== FEEDBACK ===================== -->
+  <section class="section" id="feedback">
+    <div class="wrap center">
+      <span class="eyebrow">Feedback</span>
+      <h2 class="display">Học viên nói gì</h2>
+      <p class="lead">Những dòng này là lý do mình vẫn dạy sau 6 năm.</p>
+      <!-- Render từ mảng FEEDBACKS trong data.js -->
+      <div class="fb-track" id="feedback-track" tabindex="0" aria-label="Feedback học viên, cuộn ngang" style="margin-top:2rem;text-align:left"></div>
+      <div class="fb-nav">
+        <button type="button" data-fb-prev aria-label="Feedback trước">←</button>
+        <button type="button" data-fb-next aria-label="Feedback tiếp theo">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KHOÁ HỌC ===================== -->
+  <section class="section" id="khoa-hoc" style="background:var(--white)">
+    <div class="wrap center">
+      <span class="eyebrow">Khoá học online</span>
+      <h2 class="display">Học theo nhịp của riêng bạn</h2>
+      <p class="lead">Hai khoá quay sẵn trên Udemy, mua một lần học lại bao nhiêu lần cũng được.</p>
+      <!-- Render từ mảng COURSES trong data.js — 👉 THAY tên khoá, ảnh cover, link Udemy ở đó -->
+      <div class="grid grid--2" id="course-grid" style="margin-top:2.2rem;text-align:left"></div>
+    </div>
+  </section>
+
+  <!-- ===================== VỀ TRÂM ===================== -->
+  <section class="section" id="ve-tram">
+    <div class="wrap">
+      <div class="svc-body">
+        <div class="svc-media">
+          <!-- 👉 THAY ẢNH CHÂN DUNG: đổi src thành assets/images/tram.jpg -->
+          <img src="assets/illustrations/note-kids.svg" alt="Minh hoạ lớp học sketchnote">
+        </div>
+        <div>
+          <span class="eyebrow">Về Trâm</span>
+          <h2 class="display">Từ giáo dục, qua thiết kế, rồi gặp sketchnote</h2>
+          <ol class="timeline" style="margin-top:1.5rem">
+            <li>
+              <p class="year">Chặng 1</p>
+              <h3>Bắt đầu từ ngành giáo dục</h3>
+              <p>Mình học sư phạm, và những năm đó dạy mình một điều thành nền tảng cho mọi thứ sau này: <strong>hiểu một ý tưởng và giải thích được ý tưởng đó cho người khác là hai chuyện hoàn toàn khác nhau.</strong></p>
+            </li>
+            <li>
+              <p class="year">Chặng 2</p>
+              <h3>Rẽ sang thiết kế</h3>
+              <p>Mình chuyển qua UX-UI design và nhận ra đây vẫn là công việc cũ với một cái tên mới: sắp xếp thông tin sao cho người dùng hiểu ngay mà không phải cố gắng.</p>
+            </li>
+            <li>
+              <p class="year">Chặng 3</p>
+              <h3>Rồi gặp sketchnote</h3>
+              <p>Sketchnote là chỗ hai chặng kia gặp nhau — vừa là dạy học, vừa là thiết kế, nhưng làm được bằng một cây bút và một tờ giấy. Mình vẽ để hiểu sách, vẽ để nhớ cuộc họp, rồi có người hỏi “dạy mình với”. Sáu năm trôi qua từ câu hỏi đó.</p>
+            </li>
+            <li>
+              <p class="year">Bây giờ</p>
+              <h3>Học viên từ lớp 3 đến quản lý cấp cao</h3>
+              <p>Và thú vị là cả hai nhóm đều bắt đầu bằng đúng một câu: “nhưng mình vẽ xấu lắm”.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer" id="lien-he">
+  <div class="footer-nav">
+    <nav class="nav wrap" aria-label="Điều hướng chân trang">
+      <a class="logo" href="#top">
+        <span class="top">Sketchnote</span>
+        <span class="mid">Vẽ cùng Trâm</span>
+        <span class="bottom">&amp; Calligraphy</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="footer-inner wrap">
+    <!-- Doodle trang trí — đổi file trong assets/illustrations/ nếu muốn -->
+    <span class="footer-doodle d1"><img src="assets/illustrations/doodle-notebook.svg" alt=""></span>
+    <span class="footer-doodle d2"><img src="assets/illustrations/doodle-cup.svg" alt=""></span>
+    <span class="footer-doodle d3"><img src="assets/illustrations/doodle-pen.svg" alt=""></span>
+    <span class="footer-doodle d4"><img src="assets/illustrations/doodle-book.svg" alt=""></span>
+
+    <h2 class="display">Nhắn cho Trâm</h2>
+    <p>Bạn muốn học cho bản thân, cho con, cho cả team, hay muốn đặt mình vẽ riêng một thứ gì đó? Kể mình nghe vài dòng, mình trả lời hết.</p>
+    <div class="footer-actions">
+      <a class="btn" data-site-register href="#">Gửi yêu cầu</a>
+      <a class="btn btn--outline" data-site-email href="#">Email cho Trâm</a>
+    </div>
+  </div>
+
+  <div class="footer-meta wrap">
+    <!-- Link lấy từ object SITE trong data.js -->
+    <ul class="footer-links">
+      <li><a data-site-instagram href="#" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a data-site-tiktok href="#" target="_blank" rel="noopener">TikTok</a></li>
+      <li><a data-site-zalo href="#" target="_blank" rel="noopener">Zalo</a></li>
+      <li><a data-pin-link href="#" target="_blank" rel="noopener">Pinterest</a></li>
+      <li><a data-site-email="text" href="#">email</a></li>
+    </ul>
+    <p class="copyright">© <span data-year></span> Trâm · sketchnote.trammb.com</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

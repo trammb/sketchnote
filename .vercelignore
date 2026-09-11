@@ -1,0 +1,5 @@
+# Trang quản trị chỉ chạy ở máy, không cần đưa lên web công khai.
+# Xoá 3 dòng này nếu muốn mở admin.html ngay trên tên miền thật.
+admin.html
+admin.css
+admin.js

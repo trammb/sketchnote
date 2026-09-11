@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 40 352 228" role="img" aria-label="Vẽ theo yêu cầu: sách, ly, minh hoạ">
+<g fill="none" stroke="#0E5A66" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+<path d="M30 250q85 -6 170 0t170 0"/>
+<path d="M96 176q60 -10 120 0v70q-60 -10 -120 0z"/><path d="M156 181v70"/>
+<path d="M251 210h34l-4 40h-26z"/><path d="M284 218q14 6 0 16"/><path d="M256 222h24"/>
+<rect x="240" y="60" width="96" height="80" rx="4" fill="#fff"/>
+<rect x="249" y="69" width="43" height="10" rx="3"/>
+<path d="M249 86h69"/>
+<path d="M249 98h48"/>
+<path d="M249 110h69"/>
+<path d="M249 123h48"/>
+<circle cx="316" cy="94" r="7"/>
+<path d="M310 118q10 10 20 0"/>
+<path d="M150 120q30-26 74-34"/><path d="M212 78l14 6-2 14"/>
+<path d="M92.0 65.0L94.9 72.0L102.5 72.6L96.7 77.5L98.5 84.9L92.0 81.0L85.5 84.9L87.3 77.5L81.5 72.6L89.1 72.0Z"/>
+</g>
+</svg>

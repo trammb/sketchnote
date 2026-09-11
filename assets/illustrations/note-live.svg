@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 40 352 228" role="img" aria-label="Vẽ trực tiếp tại sự kiện">
+<g fill="none" stroke="#0E5A66" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+<path d="M30 250q85 -6 170 0t170 0"/>
+<rect x="70" y="58" width="180" height="120" rx="6" fill="#fff"/>
+<rect x="86" y="72" width="148" height="92" rx="4" fill="#fff"/>
+<rect x="95" y="81" width="67" height="12" rx="3"/>
+<path d="M95 101h107"/>
+<path d="M95 116h74"/>
+<path d="M95 130h107"/>
+<path d="M95 144h74"/>
+<circle cx="214" cy="111" r="7"/>
+<path d="M208 138q10 10 20 0"/>
+<path d="M112 178l-14 52M212 178l14 52"/>
+<circle cx="308" cy="162" r="11"/>
+<path d="M297 159q11 -12 22 0"/>
+<path d="M308 173v6"/>
+<path d="M294 181q14 -9 28 0l3 33h-34z"/>
+<path d="M294 183l-9 24"/>
+<path d="M322 183l18 -12"/>
+<path d="M340 171l11 -8"/>
+<path d="M299 214l-3 34"/>
+<path d="M317 214l3 34"/>
+<path d="M338.0 52.0L340.6 58.4L347.5 58.9L342.3 63.4L343.9 70.1L338.0 66.5L332.1 70.1L333.7 63.4L328.5 58.9L335.4 58.4Z"/>
+</g>
+</svg>

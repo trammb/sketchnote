@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+._*
+
+# Vercel
+.vercel
+
+# Node (nếu sau này cần)
+node_modules/
+npm-debug.log*
+
+# File tạm
+*.log

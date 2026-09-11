@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 40 352 228" role="img" aria-label="Bảng luyện chữ calligraphy">
+<g fill="none" stroke="#0E5A66" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+<path d="M40 96h320M40 150h320M40 204h320" stroke-dasharray="6 9"/>
+<path d="M76 150q0-40 28-40t20 54q-6 34-34 30t-14-44"/>
+<path d="M150 150q-22 0-18-20t30-8-4 30q18 8 28-6"/>
+<path d="M214 150q0-40 28-40t20 54q-6 34-34 30t-14-44"/>
+<path d="M292 214l72-72 16 16-72 72-24 8z"/>
+<path d="M352 154l16 16"/>
+</g>
+</svg>

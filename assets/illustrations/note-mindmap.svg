@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 40 352 228" role="img" aria-label="Lớp dạy sketchnote">
+<g fill="none" stroke="#0E5A66" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+<path d="M30 250q85 -6 170 0t170 0"/>
+<path d="M65 250l22 -148M175 250l-22 -148"/>
+<path d="M83 224h75"/>
+<path d="M120 216v32"/>
+<rect x="65" y="96" width="110" height="120" rx="4" fill="#fff"/>
+<rect x="74" y="105" width="50" height="16" rx="3"/>
+<path d="M74 134h79"/>
+<path d="M74 153h55"/>
+<path d="M74 172h79"/>
+<path d="M74 190h55"/>
+<circle cx="155" cy="146" r="7"/>
+<path d="M149 182q10 10 20 0"/>
+<circle cx="236" cy="162" r="11"/>
+<path d="M225 159q11 -12 22 0"/>
+<path d="M236 173v6"/>
+<path d="M222 181q14 -9 28 0l3 33h-34z"/>
+<path d="M222 183l-20 -10"/>
+<path d="M250 183l6 22"/>
+<path d="M227 214l-3 34"/>
+<path d="M245 214l3 34"/>
+<circle cx="306" cy="192" r="7"/>
+<path d="M299 190q7 -8 15 0"/>
+<path d="M306 199v4"/>
+<path d="M297 204q9 -6 18 0l2 22h-22z"/>
+<path d="M297 206l-3 13"/>
+<path d="M315 206l3 13"/>
+<rect x="297" y="213" width="17" height="12" rx="2"/>
+<path d="M301 217h9M301 221h6"/>
+<path d="M300 226l-2 22"/>
+<path d="M312 226l2 22"/>
+<path d="M330.0 60.0L332.6 66.4L339.5 66.9L334.3 71.4L335.9 78.1L330.0 74.5L324.1 78.1L325.7 71.4L320.5 66.9L327.4 66.4Z"/>
+</g>
+</svg>

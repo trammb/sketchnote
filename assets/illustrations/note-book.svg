@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 40 352 228" role="img" aria-label="Sketchnote tóm tắt sách">
+<g fill="none" stroke="#0E5A66" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+<path d="M30 250q85 -6 170 0t170 0"/>
+<path d="M70 158q65 -10 130 0v76q-65 -10 -130 0z"/><path d="M135 163v76"/>
+<path d="M104 172q26-20 60-24"/>
+<rect x="236" y="100" width="110" height="96" rx="4" fill="#fff"/>
+<rect x="245" y="109" width="50" height="12" rx="3"/>
+<path d="M245 131h79"/>
+<path d="M245 146h55"/>
+<path d="M245 160h79"/>
+<path d="M245 175h55"/>
+<circle cx="326" cy="140" r="7"/>
+<path d="M320 169q10 10 20 0"/>
+<path d="M163 210h34l-4 40h-26z"/><path d="M196 218q14 6 0 16"/><path d="M168 222h24"/>
+<path d="M340.0 67.0L342.9 74.0L350.5 74.6L344.7 79.5L346.5 86.9L340.0 83.0L333.5 86.9L335.3 79.5L329.5 74.6L337.1 74.0Z"/>
+<circle cx="324" cy="195" r="7"/>
+<path d="M317 194q7 -7 14 0"/>
+<path d="M324 202v4"/>
+<path d="M315 207q9 -6 17 0l2 20h-21z"/>
+<path d="M315 208l-2 12"/>
+<path d="M333 208l2 12"/>
+<rect x="316" y="215" width="16" height="11" rx="2"/>
+<path d="M320 219h9M320 223h6"/>
+<path d="M318 228l-2 21"/>
+<path d="M330 228l2 21"/>
+</g>
+</svg>
