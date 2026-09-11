@@ -43,7 +43,13 @@ Link gửi thẳng cho khách vẫn dùng được, ví dụ:
 
 ## Sửa nội dung — cách dễ (khuyên dùng)
 
-Chạy máy chủ nội bộ rồi mở **http://localhost:8000/admin.html**
+**Cách nhanh nhất: bấm đúp file `mo-admin.command`** trong thư mục này.
+Nó tự bật máy chủ và mở trang quản trị. Đóng cửa sổ Terminal là tắt máy chủ.
+
+Sửa xong, bấm đúp **`dua-len-mang.command`** để đẩy lên web thật.
+
+(Cách thủ công: chạy `python3 -m http.server 8000` rồi mở
+http://localhost:8000/admin.html)
 
 Trang quản trị cho phép sửa mọi nội dung bằng form: thông tin liên hệ, link
 Pinterest, 5 dịch vụ, khoá học, feedback, thư viện ảnh. Thêm / xoá / đổi thứ
