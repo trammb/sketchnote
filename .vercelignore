@@ -1,5 +1,2 @@
-# Trang quản trị chỉ chạy ở máy, không cần đưa lên web công khai.
-# Xoá 3 dòng này nếu muốn mở admin.html ngay trên tên miền thật.
-admin.html
-admin.css
-admin.js
+# Trang quản trị giờ chạy được trên web, có đăng nhập bảo vệ (xem api/auth.js).
+# Không loại file nào khỏi bản deploy nữa.

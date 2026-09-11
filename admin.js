@@ -17,7 +17,10 @@
      Trình duyệt không hỗ trợ (Safari, Firefox) thì tự chuyển
      sang tải file về.
   ============================================================ */
-  var CAN_WRITE = typeof window.showOpenFilePicker === "function";
+  // Chạy ở máy (localhost) thì ghi thẳng file. Chạy trên web thì lưu qua GitHub.
+  var CHAY_O_MAY = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  var CHE_DO_WEB = !CHAY_O_MAY;
+  var CAN_WRITE = !CHE_DO_WEB && typeof window.showOpenFilePicker === "function";
   var fileHandle = null;
   var savedSnapshot = null;   // nội dung lúc lưu thành công gần nhất
 
@@ -477,9 +480,44 @@
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
   }
 
+  function luuQuaWeb(text, snapshot) {
+    var btn = $("#btn-save");
+    btn.disabled = true;
+    markSaved("Đang gửi lên máy chủ…", true);
+    return fetch("/api/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content: text })
+    }).then(docTraLoi).then(function (kq) {
+      btn.disabled = false;
+      if (kq.status === 401) {
+        moManDangNhap();
+        toast("Phiên đăng nhập hết hạn, đăng nhập lại giúp mình", true);
+        markSaved("Chưa lưu — cần đăng nhập lại", true);
+        return;
+      }
+      if (!kq.body.ok) {
+        markSaved("Lưu không thành công", true);
+        toast(kq.body.loi || "Lưu không thành công", true);
+        return;
+      }
+      savedSnapshot = snapshot;
+      markSaved("Đã lưu lúc " + new Date().toLocaleTimeString("vi-VN") +
+                (kq.body.commit ? " · " + kq.body.commit : ""));
+      refreshDirty();
+      toast("Đã lưu. Khoảng 30 giây nữa web thật sẽ cập nhật.");
+    }).catch(function (e) {
+      btn.disabled = false;
+      markSaved("Lưu không thành công", true);
+      toast("Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.", true);
+    });
+  }
+
   function doSave() {
     var text = buildDataJs();
     var snapshot = JSON.stringify(data);
+
+    if (CHE_DO_WEB) { luuQuaWeb(text, snapshot); return; }
 
     if (!CAN_WRITE) {
       downloadFile();
@@ -534,7 +572,10 @@
   function refreshFileInfo() {
     var box = $("#file-info");
     if (!box) return;
-    if (!CAN_WRITE) {
+    if (CHE_DO_WEB) {
+      box.innerHTML = "Đang mở trên web. Bấm <strong>Lưu</strong> là nội dung được ghi thẳng lên GitHub, " +
+        "Vercel tự deploy lại sau khoảng 30 giây. Nút tải file bên dưới chỉ dùng để sao lưu.";
+    } else if (!CAN_WRITE) {
       box.innerHTML = "Trình duyệt này (Safari/Firefox) chưa hỗ trợ ghi thẳng file. " +
         "Nút <strong>Lưu</strong> sẽ tải file <code>data.js</code> về máy để bạn chép đè.";
     } else if (fileHandle) {
@@ -612,6 +653,77 @@
     try { localStorage.setItem(DRAFT_KEY, JSON.stringify(data)); } catch (e) {}
     window.open("index.html?preview=1", "_blank", "noopener");
   });
+
+  /* ---------- Đọc trả lời từ máy chủ một cách an toàn ---------- */
+  function docTraLoi(r) {
+    return r.text().then(function (t) {
+      var j = null;
+      try { j = JSON.parse(t); } catch (e) {}
+      if (!j) {
+        j = { ok: false, loi: r.status === 404
+          ? "Máy chủ chưa có phần đăng nhập (thiếu thư mục api). Nếu đang chạy ở máy thì dùng bản localhost."
+          : "Máy chủ trả về dữ liệu không đọc được (mã " + r.status + ")" };
+      }
+      return { status: r.status, body: j };
+    });
+  }
+
+  /* ---------- Đăng nhập (chỉ dùng ở chế độ web) ---------- */
+  function moManDangNhap() {
+    var gate = $("#gate");
+    if (!gate) return;
+    gate.hidden = false;
+    var o = $("#gate-pass");
+    if (o) { o.value = ""; setTimeout(function () { o.focus(); }, 50); }
+  }
+  function dongManDangNhap() {
+    var gate = $("#gate");
+    if (gate) gate.hidden = true;
+  }
+
+  if (CHE_DO_WEB) {
+    var form = $("#gate-form");
+    var err = $("#gate-err");
+    var nutLogout = $("#btn-logout");
+    if (nutLogout) nutLogout.hidden = false;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var nut = $("#gate-btn");
+      nut.disabled = true;
+      nut.textContent = "Đang kiểm tra…";
+      err.hidden = true;
+      fetch("/api/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: $("#gate-pass").value })
+      }).then(docTraLoi).then(function (kq) {
+        nut.disabled = false;
+        nut.textContent = "Đăng nhập";
+        if (kq.body.ok) { dongManDangNhap(); toast("Đã đăng nhập"); }
+        else { err.textContent = kq.body.loi || "Không đăng nhập được"; err.hidden = false; }
+      }).catch(function (e2) {
+        nut.disabled = false;
+        nut.textContent = "Đăng nhập";
+        err.textContent = "Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.";
+        err.hidden = false;
+      });
+    });
+
+    if (nutLogout) {
+      nutLogout.addEventListener("click", function () {
+        fetch("/api/auth", { method: "DELETE" }).then(function () {
+          moManDangNhap();
+          toast("Đã đăng xuất");
+        });
+      });
+    }
+
+    // Kiểm tra phiên hiện tại
+    fetch("/api/auth").then(function (r) { return r.json(); }).then(function (j) {
+      if (!j.authed) moManDangNhap();
+    }).catch(function () { moManDangNhap(); });
+  }
 
   /* ---------- Khởi động ---------- */
   function renderAll() {

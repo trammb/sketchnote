@@ -13,6 +13,18 @@
 </head>
 <body>
 
+<!-- Lớp phủ đăng nhập — chỉ hiện khi mở trên web, không hiện khi chạy ở máy -->
+<div id="gate" hidden>
+  <form id="gate-form">
+    <h1>Vẽ cùng Trâm</h1>
+    <p>Trang quản trị nội dung</p>
+    <label for="gate-pass">Mật khẩu</label>
+    <input type="password" id="gate-pass" autocomplete="current-password" required>
+    <button class="btn" type="submit" id="gate-btn">Đăng nhập</button>
+    <p class="gate-err" id="gate-err" hidden></p>
+  </form>
+</div>
+
 <div class="topbar">
   <h1>⚙️ Quản trị nội dung</h1>
   <span class="save-state" id="save-state">Đang tải…</span>
@@ -20,6 +32,7 @@
   <button class="btn btn--light" id="btn-save" type="button" title="Ghi thẳng vào data.js (Ctrl+S)">💾 Lưu vào data.js</button>
   <button class="btn btn--light" id="btn-preview" type="button">Xem trước</button>
   <button class="btn btn--light" id="btn-export" type="button">Tải file / Sao lưu</button>
+  <button class="btn" id="btn-logout" type="button" hidden>Đăng xuất</button>
 </div>
 
 <div class="layout">

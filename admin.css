@@ -79,7 +79,8 @@ code { background: var(--sky-soft); padding: .1em .4em; border-radius: 4px; font
 .field { margin-bottom: 1rem; }
 .field > label { display: block; font-weight: 800; font-size: .8rem; color: var(--ink); margin-bottom: .3rem; }
 .field .hint { font-size: .78rem; color: var(--ink-soft); margin: .25rem 0 0; }
-input[type=text], input[type=url], input[type=email], input[type=number], input:not([type]), textarea, select {
+input[type=text], input[type=url], input[type=email], input[type=number],
+input[type=password], input:not([type]), textarea, select {
   width: 100%; font: 400 .92rem/1.5 var(--font); color: var(--ink);
   padding: .6rem .7rem; border: 1.5px solid var(--line); border-radius: 8px;
   background: #fff; resize: vertical;
@@ -143,3 +144,31 @@ textarea { min-height: 84px; }
 }
 #toast.show { opacity: 1; translate: -50% -6px; }
 #toast.err { background: var(--warn); }
+
+/* ---------- 16. Màn đăng nhập (chỉ dùng khi mở trên web) ---------- */
+#gate {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--ink);
+  display: grid; place-items: center; padding: 1.5rem;
+}
+#gate[hidden] { display: none; }
+#gate form {
+  background: #fff; border-radius: 16px; padding: 2rem 1.8rem;
+  width: min(100%, 380px); text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+#gate h1 { font-size: 1.3rem; margin-bottom: .2rem; }
+#gate > form > p { font-size: .88rem; margin-bottom: 1.4rem; }
+#gate label {
+  display: block; text-align: left; font-weight: 800;
+  font-size: .78rem; color: var(--ink); margin-bottom: .35rem;
+}
+#gate input { margin-bottom: 1rem; }
+#gate .btn { width: 100%; justify-content: center; padding: .85em 1em; }
+#gate .btn[disabled] { opacity: .6; cursor: wait; }
+.gate-err {
+  margin: .9rem 0 0; color: var(--warn); font-size: .85rem; font-weight: 700;
+}
+.gate-err[hidden] { display: none; }
+#btn-logout { border-color: rgba(255,255,255,.45); background: transparent; color: rgba(255,255,255,.85); }
+#btn-logout:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.6); }

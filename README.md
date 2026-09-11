@@ -43,7 +43,27 @@ Link gửi thẳng cho khách vẫn dùng được, ví dụ:
 
 ## Sửa nội dung — cách dễ (khuyên dùng)
 
-**Cách nhanh nhất: bấm đúp file `mo-admin.command`** trong thư mục này.
+### Cách 1 — Sửa ngay trên web (tiện nhất)
+
+Vào **https://sketchnote.trammb.com/admin.html** → nhập mật khẩu → sửa →
+bấm **Lưu**. Nội dung được ghi thẳng lên GitHub, Vercel tự deploy lại sau
+khoảng 30 giây. Không cần mở máy tính có sẵn mã nguồn, dùng điện thoại cũng được.
+
+Cần cấu hình 3 biến môi trường trên Vercel (Settings → Environment Variables):
+
+| Biến | Ý nghĩa |
+|---|---|
+| `ADMIN_PASSWORD` | Mật khẩu đăng nhập trang quản trị |
+| `SESSION_SECRET` | Chuỗi ngẫu nhiên dài để ký phiên đăng nhập |
+| `GITHUB_TOKEN` | Token GitHub có quyền ghi nội dung repo `trammb/sketchnote` |
+
+Phiên đăng nhập sống 12 tiếng. Cookie dạng HttpOnly + Secure + SameSite=Strict,
+token có chữ ký HMAC nên không giả mạo được. Mật khẩu và token GitHub nằm ở
+biến môi trường trên máy chủ, không bao giờ gửi xuống trình duyệt.
+
+### Cách 2 — Sửa ở máy
+
+**Bấm đúp file `mo-admin.command`** trong thư mục này.
 Nó tự bật máy chủ và mở trang quản trị. Đóng cửa sổ Terminal là tắt máy chủ.
 
 Sửa xong, bấm đúp **`dua-len-mang.command`** để đẩy lên web thật.
