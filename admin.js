@@ -18,7 +18,8 @@
      sang tải file về.
   ============================================================ */
   // Chạy ở máy (localhost) thì ghi thẳng file. Chạy trên web thì lưu qua GitHub.
-  var CHAY_O_MAY = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  var CHAY_O_MAY = location.protocol === "file:" ||
+                  /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
   var CHE_DO_WEB = !CHAY_O_MAY;
   var CAN_WRITE = !CHE_DO_WEB && typeof window.showOpenFilePicker === "function";
   var fileHandle = null;
@@ -124,7 +125,7 @@
     t.classList.toggle("err", !!isErr);
     t.classList.add("show");
     clearTimeout(t._t);
-    t._t = setTimeout(function () { t.classList.remove("show"); }, 2600);
+    t._t = setTimeout(function () { t.classList.remove("show"); }, isErr ? 9000 : 2600);
   }
 
   /* ---------- Tab ---------- */
@@ -497,8 +498,10 @@
         return;
       }
       if (!kq.body.ok) {
-        markSaved("Lưu không thành công", true);
-        toast(kq.body.loi || "Lưu không thành công", true);
+        var lyDo = kq.body.loi || ("Máy chủ trả về mã " + kq.status);
+        if (kq.body.chiTiet) lyDo += " · " + String(kq.body.chiTiet).slice(0, 200);
+        markSaved("Lưu không thành công — " + lyDo, true);
+        toast(lyDo, true);
         return;
       }
       savedSnapshot = snapshot;
@@ -508,8 +511,9 @@
       toast("Đã lưu. Khoảng 30 giây nữa web thật sẽ cập nhật.");
     }).catch(function (e) {
       btn.disabled = false;
-      markSaved("Lưu không thành công", true);
-      toast("Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.", true);
+      var lyDo = "Không kết nối được máy chủ (" + (e && e.message ? e.message : e) + ")";
+      markSaved("Lưu không thành công — " + lyDo, true);
+      toast(lyDo + ". Kiểm tra mạng rồi thử lại.", true);
     });
   }
 

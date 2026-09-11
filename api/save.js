@@ -106,7 +106,21 @@ module.exports = async function handler(req, res) {
 
     if (!r2.ok) {
       var t2 = await r2.text();
-      return res.status(502).json({ ok: false, loi: "GitHub từ chối ghi file (" + r2.status + ")", chiTiet: t2.slice(0, 300) });
+      var goiY = "";
+      if (r2.status === 403) {
+        goiY = " GITHUB_TOKEN thiếu quyền ghi: vào GitHub → token → Permissions → Contents đổi thành Read and write.";
+      } else if (r2.status === 404) {
+        goiY = " GITHUB_TOKEN chưa được cấp quyền cho repo " + repo +
+               ": vào GitHub → token → Repository access → chọn repo này, và Contents = Read and write.";
+      } else if (r2.status === 409 || r2.status === 422) {
+        goiY = " Nhánh " + nhanh + " có thể đang bị khoá (branch protection) hoặc file vừa bị sửa nơi khác. Thử lưu lại.";
+      }
+      goiY += " Sửa xong nhớ Redeploy trên Vercel.";
+      return res.status(502).json({
+        ok: false,
+        loi: "GitHub từ chối ghi file (" + r2.status + ")." + goiY,
+        chiTiet: t2.slice(0, 300)
+      });
     }
     var kq = await r2.json();
     return res.status(200).json({
