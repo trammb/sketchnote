@@ -62,25 +62,6 @@
     "cup":   ico('<path d="M11 16h22l-3 24H14z"/><path d="M33 20q7 4 0 11"/><path d="M17 10q2-3 0-5M24 10q2-3 0-5M31 10q2-3 0-5"/>')
   };
 
-  /* ---------- Menu điện thoại ---------- */
-  var toggle = $(".nav-toggle");
-  var navLists = $$(".site-header .nav-links");
-  if (toggle && navLists.length) {
-    toggle.addEventListener("click", function () {
-      var open = !navLists[0].classList.contains("open");
-      navLists.forEach(function (u) { u.classList.toggle("open", open); });
-      toggle.setAttribute("aria-expanded", String(open));
-    });
-    navLists.forEach(function (u) {
-      u.addEventListener("click", function (e) {
-        if (e.target.closest("a")) {
-          navLists.forEach(function (x) { x.classList.remove("open"); });
-          toggle.setAttribute("aria-expanded", "false");
-        }
-      });
-    });
-  }
-
   /* ---------- Link liên hệ lấy từ SITE ---------- */
   function wireContacts(scope) {
     if (!D.SITE) return;
