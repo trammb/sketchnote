@@ -1,70 +1,48 @@
 /* ============================================================
-   data.js — TOÀN BỘ NỘI DUNG BẠN CẦN TỰ SỬA NẰM Ở FILE NÀY
-   Sửa xong lưu lại là web tự cập nhật, không cần đụng vào HTML.
-
-   Lưu ý về hình ảnh: hiện tại web đang dùng bộ hình minh hoạ SVG
-   trong assets/illustrations/. Khi có ảnh sketchnote thật, chỉ cần
-   bỏ ảnh vào assets/images/ rồi đổi đường dẫn bên dưới.
+   data.js — NỘI DUNG CỦA WEBSITE
+   File này do trang admin.html sinh ra lúc 06:53:42 12/9/2026.
+   Sửa bằng admin.html cho tiện, hoặc sửa tay trực tiếp ở đây cũng được.
    ============================================================ */
 
-/* ------------------------------------------------------------
-   1) THÔNG TIN LIÊN HỆ & MẠNG XÃ HỘI
-   👉 THAY: link Instagram, TikTok, email, Zalo
------------------------------------------------------------- */
+/* 1) Liên hệ & mạng xã hội */
 const SITE = {
-  email: "hello@trammb.com",                        // 👉 THAY email thật
-  instagram: "https://instagram.com/YOUR_USERNAME", // 👉 THAY link Instagram
-  tiktok: "https://tiktok.com/@YOUR_USERNAME",      // 👉 THAY link TikTok
-  zalo: "https://zalo.me/YOUR_PHONE",               // 👉 THAY link Zalo (để "" nếu không dùng)
-  registerForm: ""   // 👉 THAY link Google Form nếu có. Để "" thì nút liên hệ mở email.
+  email: "trammb.bt@gmail.com",
+  instagram: "https://instagram.com/vecungtram",
+  tiktok: "https://tiktok.com/@vecungtram",
+  zalo: "https://zalo.me/0903618413",          // để "" thì ẩn khỏi footer
+  registerForm: ""   // để "" thì nút liên hệ mở email
 };
 
-/* ------------------------------------------------------------
-   2) PINTEREST — THƯ VIỆN HÌNH ẢNH
-   Cách lấy: vào https://widgets.pinterest.com → tab "Board"
-   → dán link board → Build it!  (code ở đây đã dựng sẵn theo chuẩn đó,
-   bạn chỉ cần dán đúng link board vào biến dưới)
-   👉 THAY: PINTEREST_BOARD_URL
------------------------------------------------------------- */
-const PINTEREST_BOARD_URL = "https://www.pinterest.com/USERNAME/BOARD-NAME/"; // 👉 THAY link board thật
+/* 2) Board Pinterest cho phần thư viện */
+const PINTEREST_BOARD_URL = "https://www.pinterest.com/pisuxyz";
 
 const PINTEREST_WIDGET = {
-  imageWidth: 92,    // độ rộng mỗi ảnh nhỏ (tối đa 236)
-  boardWidth: 900,   // độ rộng tổng của board (tối đa 1000)
-  boardHeight: 620   // chiều cao tổng của board (tối đa 1000)
+  imageWidth: 92,
+  boardWidth: 900,
+  boardHeight: 620
 };
 
-/* ------------------------------------------------------------
-   3) ẢNH DỰ PHÒNG cho thư viện
-   Hiện khi widget Pinterest tải chậm hoặc bị chặn.
-   👉 THAY bằng ảnh sketchnote thật của bạn trong assets/images/
------------------------------------------------------------- */
+/* 3) Ảnh dự phòng khi widget Pinterest tải chậm */
 const GALLERY_FALLBACK = [
   { src: "assets/illustrations/note-mindmap.svg", alt: "Lớp dạy sketchnote" },
-  { src: "assets/illustrations/note-book.svg",    alt: "Sketchnote tóm tắt sách" },
+  { src: "assets/illustrations/note-book.svg", alt: "Sketchnote tóm tắt sách" },
   { src: "assets/illustrations/note-meeting.svg", alt: "Buổi workshop nhóm nhỏ" },
   { src: "assets/illustrations/note-letters.svg", alt: "Bảng luyện chữ calligraphy" },
-  { src: "assets/illustrations/note-live.svg",    alt: "Vẽ trực tiếp tại sự kiện" },
-  { src: "assets/illustrations/note-custom.svg",  alt: "Vẽ theo yêu cầu: sách, ly, minh hoạ" }
+  { src: "assets/illustrations/note-live.svg", alt: "Vẽ trực tiếp tại sự kiện" },
+  { src: "assets/illustrations/note-custom.svg", alt: "Vẽ theo yêu cầu: sách, ly, minh hoạ" }
 ];
 
-/* ------------------------------------------------------------
-   4) GALLERY LIVE RECORDING
-   👉 THAY: ảnh các buổi bạn từng vẽ trực tiếp + tên sự kiện
------------------------------------------------------------- */
+/* 4) Ảnh các buổi live recording */
 const LIVE_GALLERY = [
-  { src: "assets/illustrations/note-live.svg",    caption: "Hội thảo Giáo dục Sáng tạo — 2024" },
+  { src: "assets/illustrations/note-live.svg", caption: "Hội thảo Giáo dục Sáng tạo — 2024" },
   { src: "assets/illustrations/note-meeting.svg", caption: "Workshop nội bộ công ty ABC — 2024" },
   { src: "assets/illustrations/note-mindmap.svg", caption: "Sự kiện ra mắt sản phẩm XYZ — 2023" },
-  { src: "assets/illustrations/note-book.svg",    caption: "Toạ đàm Sách & Tư duy hình ảnh — 2023" },
-  { src: "assets/illustrations/note-kids.svg",    caption: "Ngày hội hướng nghiệp trường M — 2023" },
+  { src: "assets/illustrations/note-book.svg", caption: "Toạ đàm Sách & Tư duy hình ảnh — 2023" },
+  { src: "assets/illustrations/note-kids.svg", caption: "Ngày hội hướng nghiệp trường M — 2023" },
   { src: "assets/illustrations/note-letters.svg", caption: "Team building công ty N — 2022" }
 ];
 
-/* ------------------------------------------------------------
-   5) 4 DỊCH VỤ
-   👉 Sửa mô tả / hình thức ở đây, không cần đụng HTML
------------------------------------------------------------- */
+/* 5) Các dịch vụ. Mã id chính là địa chỉ liên kết riêng: …/#<id> */
 const SERVICES = [
   {
     id: "day-sketchnote",
@@ -128,34 +106,27 @@ const SERVICES = [
   }
 ];
 
-/* ------------------------------------------------------------
-   6) KHOÁ HỌC UDEMY
-   👉 THAY: tên khoá, mô tả, ảnh cover, link Udemy thật
------------------------------------------------------------- */
+/* 6) Khoá học Udemy */
 const COURSES = [
   {
     title: "Sketchnote cho người mới bắt đầu",
-    cover: "assets/illustrations/note-mindmap.svg",   // 👉 THAY ảnh cover thật
+    cover: "assets/illustrations/note-mindmap.svg",
     desc: "Học ghi chú bằng hình từ con số 0: nét cơ bản, kho biểu tượng, bố cục trang và cách tóm tắt một bài giảng trong một trang giấy.",
     level: "Cơ bản",
     lessons: "30+ bài giảng",
-    url: "https://www.udemy.com/course/YOUR-COURSE-1/"  // 👉 THAY link Udemy
+    url: "https://www.udemy.com/course/YOUR-COURSE-1/"
   },
   {
     title: "Chữ đẹp & Calligraphy trong Sketchnote",
-    cover: "assets/illustrations/note-letters.svg",   // 👉 THAY ảnh cover thật
+    cover: "assets/illustrations/note-letters.svg",
     desc: "Nâng cấp trang sketchnote bằng typography viết tay: kiểu chữ tiêu đề, nhấn nhá, khung viền và cách phối chữ với hình.",
     level: "Cơ bản → Trung cấp",
     lessons: "25+ bài giảng",
-    url: "https://www.udemy.com/course/YOUR-COURSE-2/"  // 👉 THAY link Udemy
+    url: "https://www.udemy.com/course/YOUR-COURSE-2/"
   }
 ];
 
-/* ------------------------------------------------------------
-   7) FEEDBACK HỌC VIÊN
-   👉 THÊM FEEDBACK MỚI: copy một khối { ... } rồi sửa nội dung.
-   Phần feedback chỉ hiển thị chữ, không kèm ảnh.
------------------------------------------------------------- */
+/* 7) Feedback học viên — chỉ hiển thị chữ, không kèm ảnh */
 const FEEDBACKS = [
   {
     name: "Minh Anh",
