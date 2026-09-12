@@ -1,5 +1,5 @@
 /* ============================================================
-   admin.js — trang quản trị nội dung cho sketchnote.trammb.com
+   admin.js: trang quản trị nội dung cho sketchnote.trammb.com
    Chạy hoàn toàn trong trình duyệt, không cần máy chủ.
    Đọc data.js → sửa bằng form → xuất ra data.js mới.
    ============================================================ */
@@ -334,7 +334,7 @@
     box.innerHTML = "";
     data.LIVE_GALLERY.forEach(function (g, i) {
       box.appendChild(itemCard(g.caption, data.LIVE_GALLERY, i, renderLive, function (b) {
-        b.appendChild(field("Chú thích", g.caption, "Ví dụ: Hội thảo ABC — 2024", function (v) { g.caption = v; }));
+        b.appendChild(field("Chú thích", g.caption, "Ví dụ: Hội thảo ABC, 2024", function (v) { g.caption = v; }));
         b.appendChild(imageField("Đường dẫn ảnh", g.src, null, function (v) { g.src = v; }));
       }));
     });
@@ -372,7 +372,7 @@
       renderFeedbacks();
     },
     live: function () {
-      data.LIVE_GALLERY.push({ src: "assets/images/", caption: "Tên sự kiện — năm" });
+      data.LIVE_GALLERY.push({ src: "assets/images/", caption: "Tên sự kiện, năm" });
       renderLive();
     },
     fallback: function () {
@@ -407,7 +407,7 @@
   function buildDataJs() {
     var d = data, L = [];
     L.push("/* ============================================================");
-    L.push("   data.js — NỘI DUNG CỦA WEBSITE");
+    L.push("   data.js: NỘI DUNG CỦA WEBSITE");
     L.push("   File này do trang admin.html sinh ra lúc " + new Date().toLocaleString("vi-VN") + ".");
     L.push("   Sửa bằng admin.html cho tiện, hoặc sửa tay trực tiếp ở đây cũng được.");
     L.push("   ============================================================ */");
@@ -459,7 +459,7 @@
     }).join(",\n"));
     L.push("];");
     L.push("");
-    L.push("/* 7) Feedback học viên — chỉ hiển thị chữ, không kèm ảnh */");
+    L.push("/* 7) Feedback học viên, chỉ hiển thị chữ, không kèm ảnh */");
     L.push("const FEEDBACKS = [");
     L.push(d.FEEDBACKS.map(function (f) {
       return "  {\n" + objLines(f, ["name", "role", "quote"], "    ") + "\n  }";
@@ -494,13 +494,13 @@
       if (kq.status === 401) {
         moManDangNhap();
         toast("Phiên đăng nhập hết hạn, đăng nhập lại giúp mình", true);
-        markSaved("Chưa lưu — cần đăng nhập lại", true);
+        markSaved("Chưa lưu, cần đăng nhập lại", true);
         return;
       }
       if (!kq.body.ok) {
         var lyDo = kq.body.loi || ("Máy chủ trả về mã " + kq.status);
         if (kq.body.chiTiet) lyDo += " · " + String(kq.body.chiTiet).slice(0, 200);
-        markSaved("Lưu không thành công — " + lyDo, true);
+        markSaved("Lưu không thành công: " + lyDo, true);
         toast(lyDo, true);
         return;
       }
@@ -512,7 +512,7 @@
     }).catch(function (e) {
       btn.disabled = false;
       var lyDo = "Không kết nối được máy chủ (" + (e && e.message ? e.message : e) + ")";
-      markSaved("Lưu không thành công — " + lyDo, true);
+      markSaved("Lưu không thành công: " + lyDo, true);
       toast(lyDo + ". Kiểm tra mạng rồi thử lại.", true);
     });
   }
@@ -525,7 +525,7 @@
 
     if (!CAN_WRITE) {
       downloadFile();
-      toast("Trình duyệt này không ghi thẳng file được — đã tải data.js về, bạn chép đè giúp mình", true);
+      toast("Trình duyệt này không ghi thẳng file được, đã tải data.js về, bạn chép đè giúp mình", true);
       return;
     }
 
@@ -539,11 +539,11 @@
       savedSnapshot = snapshot;
       markSaved("Đã lưu vào data.js lúc " + new Date().toLocaleTimeString("vi-VN"));
       refreshDirty();
-      toast("Đã lưu vào data.js — mở lại web là thấy nội dung mới");
+      toast("Đã lưu vào data.js, mở lại web là thấy nội dung mới");
     }).catch(function (err) {
       if (err && err.name === "AbortError") return;   // người dùng bấm huỷ
       downloadFile();
-      toast("Không ghi được file (" + (err.message || err.name) + ") — đã tải về để bạn chép đè", true);
+      toast("Không ghi được file (" + (err.message || err.name) + "), đã tải về để bạn chép đè", true);
     });
   }
 
@@ -587,7 +587,7 @@
         "Bấm <strong>Lưu</strong> (hoặc Ctrl+S) là ghi thẳng vào file này.";
     } else {
       box.innerHTML = "Chưa gắn file nào. Lần đầu bấm <strong>Lưu</strong>, trình duyệt sẽ hỏi " +
-        "chọn file — hãy chọn đúng file <code>data.js</code> trong thư mục web.";
+        "chọn file, hãy chọn đúng file <code>data.js</code> trong thư mục web.";
     }
   }
 
@@ -598,7 +598,7 @@
     a.download = "data.js";
     a.click();
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-    toast("Đã tải data.js — nhớ chép đè lên file cũ");
+    toast("Đã tải data.js, nhớ chép đè lên file cũ");
   });
   $("#btn-export").addEventListener("click", function () {
     $$(".sidenav button").forEach(function (x) { x.classList.remove("active"); });
@@ -637,7 +637,7 @@
         save();
         toast("Đã nạp nội dung từ file");
       } catch (err) {
-        toast("File không đọc được — cần đúng file data.js", true);
+        toast("File không đọc được, cần đúng file data.js", true);
       }
       e.target.value = "";
     };
@@ -742,7 +742,7 @@
 
   if (!ORIGINAL.SITE) {
     markSaved("Không đọc được data.js", true);
-    toast("Không tìm thấy data.js — hãy mở admin.html qua máy chủ nội bộ", true);
+    toast("Không tìm thấy data.js, hãy mở admin.html qua máy chủ nội bộ", true);
   } else {
     renderAll();
     savedSnapshot = JSON.stringify(ORIGINAL);

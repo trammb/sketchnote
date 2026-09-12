@@ -1,5 +1,5 @@
 /* ============================================================
-   script.js — render nội dung từ data.js + xử lý giao diện
+   script.js: render nội dung từ data.js + xử lý giao diện
    Bình thường bạn KHÔNG cần sửa file này.
    Mọi nội dung cần thay đều nằm trong data.js
    ============================================================ */
@@ -25,7 +25,7 @@
       if (draft) {
         Object.keys(draft).forEach(function (k) { D[k] = draft[k]; });
         var flag = document.createElement("div");
-        flag.textContent = "Đang xem trước bản nháp từ trang admin — chưa lưu vào data.js";
+        flag.textContent = "Đang xem trước bản nháp từ trang admin, chưa lưu vào data.js";
         flag.style.cssText = "position:fixed;left:0;right:0;bottom:0;z-index:999;background:#0E5A66;" +
           "color:#fff;text-align:center;padding:.6rem 1rem;font:600 13px/1.4 Mulish,sans-serif";
         document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(flag); });

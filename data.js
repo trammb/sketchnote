@@ -1,5 +1,5 @@
 /* ============================================================
-   data.js — NỘI DUNG CỦA WEBSITE
+   data.js: NỘI DUNG CỦA WEBSITE
    File này do trang admin.html sinh ra lúc 06:53:42 12/9/2026.
    Sửa bằng admin.html cho tiện, hoặc sửa tay trực tiếp ở đây cũng được.
    ============================================================ */
@@ -34,12 +34,12 @@ const GALLERY_FALLBACK = [
 
 /* 4) Ảnh các buổi live recording */
 const LIVE_GALLERY = [
-  { src: "assets/illustrations/note-live.svg", caption: "Hội thảo Giáo dục Sáng tạo — 2024" },
-  { src: "assets/illustrations/note-meeting.svg", caption: "Workshop nội bộ công ty ABC — 2024" },
-  { src: "assets/illustrations/note-mindmap.svg", caption: "Sự kiện ra mắt sản phẩm XYZ — 2023" },
-  { src: "assets/illustrations/note-book.svg", caption: "Toạ đàm Sách & Tư duy hình ảnh — 2023" },
-  { src: "assets/illustrations/note-kids.svg", caption: "Ngày hội hướng nghiệp trường M — 2023" },
-  { src: "assets/illustrations/note-letters.svg", caption: "Team building công ty N — 2022" }
+  { src: "assets/illustrations/note-live.svg", caption: "Hội thảo Giáo dục Sáng tạo, 2024" },
+  { src: "assets/illustrations/note-meeting.svg", caption: "Workshop nội bộ công ty ABC, 2024" },
+  { src: "assets/illustrations/note-mindmap.svg", caption: "Sự kiện ra mắt sản phẩm XYZ, 2023" },
+  { src: "assets/illustrations/note-book.svg", caption: "Toạ đàm Sách & Tư duy hình ảnh, 2023" },
+  { src: "assets/illustrations/note-kids.svg", caption: "Ngày hội hướng nghiệp trường M, 2023" },
+  { src: "assets/illustrations/note-letters.svg", caption: "Team building công ty N, 2022" }
 ];
 
 /* 5) Các dịch vụ. Mã id chính là địa chỉ liên kết riêng: …/#<id> */
@@ -50,9 +50,9 @@ const SERVICES = [
     title: "Dạy sketchnote",
     image: "assets/illustrations/note-mindmap.svg",
     short: "Học 1:1 hoặc nhóm nhỏ, từ nét cơ bản đến một trang ghi chú hoàn chỉnh.",
-    desc: "Sketchnote là cách ghi chép kết hợp chữ, hình và bố cục, để nhìn một trang giấy là nhớ lại cả buổi học. Mình dạy từ những nét đơn giản nhất — que, hộp, mũi tên, khuôn mặt — rồi ghép dần thành một trang hoàn chỉnh. Bạn không cần biết vẽ.",
+    desc: "Sketchnote là cách ghi chép kết hợp chữ, hình và bố cục, để nhìn một trang giấy là nhớ lại cả buổi học. Mình dạy từ những nét đơn giản nhất (que, hộp, mũi tên, khuôn mặt) rồi ghép dần thành một trang hoàn chỉnh. Bạn không cần biết vẽ.",
     forWho: ["Học sinh, sinh viên muốn ghi bài nhanh và nhớ lâu", "Người đi làm hay phải tóm tắt sách, khoá học, cuộc họp", "Giáo viên muốn bài giảng trực quan hơn", "Trẻ em từ 8 tuổi"],
-    benefits: ["Kho biểu tượng cá nhân dùng được suốt đời", "Cách bố cục trang: tiêu đề, luồng đọc, khoảng trắng", "Kỹ thuật nghe — lọc ý — vẽ cùng lúc", "Bài tập sau mỗi buổi, mình nhận xét từng bài"],
+    benefits: ["Kho biểu tượng cá nhân dùng được suốt đời", "Cách bố cục trang: tiêu đề, luồng đọc, khoảng trắng", "Kỹ thuật nghe, lọc ý và vẽ cùng lúc", "Bài tập sau mỗi buổi, mình nhận xét từng bài"],
     formats: ["Online 1:1", "Offline 1:1", "Nhóm nhỏ 3–6 người", "Lớp trẻ em"],
     note: "Mỗi buổi 90 phút. Lộ trình cơ bản 4–6 buổi, điều chỉnh theo mục tiêu của bạn."
   },
@@ -62,7 +62,7 @@ const SERVICES = [
     title: "Dạy calligraphy",
     image: "assets/illustrations/note-letters.svg",
     short: "Viết chữ đẹp bằng bút brush và bút mài, dùng được ngay trong sketchnote.",
-    desc: "Chữ viết tay là thứ làm một trang sketchnote có cá tính. Lớp đi từ nguyên tắc nét thanh — nét đậm, cách cầm bút, nhịp tay, rồi tới các kiểu chữ bạn dùng được ngay: tiêu đề, chữ nhấn, bảng hiệu, thiệp tặng.",
+    desc: "Chữ viết tay là thứ làm một trang sketchnote có cá tính. Lớp đi từ nguyên tắc nét thanh, nét đậm, cách cầm bút, nhịp tay, rồi tới các kiểu chữ bạn dùng được ngay: tiêu đề, chữ nhấn, bảng hiệu, thiệp tặng.",
     forWho: ["Người đang học sketchnote, muốn phần chữ đẹp hơn", "Người thích viết thiệp, làm quà tặng thủ công", "Người muốn một thói quen chậm rãi, luyện tập trung"],
     benefits: ["Kiểm soát nét bằng bút brush và bút mài", "2–3 bộ chữ hoàn chỉnh, viết không cần nhìn mẫu", "Cách phối chữ với hình trong một bố cục", "File bảng luyện nét để in ra tập tại nhà"],
     formats: ["Online 1:1", "Offline 1:1", "Nhóm nhỏ 3–6 người", "Workshop 1 buổi"],
@@ -74,7 +74,7 @@ const SERVICES = [
     title: "Training cho doanh nghiệp",
     image: "assets/illustrations/note-meeting.svg",
     short: "Buổi training thực hành cho team: nhớ lâu hơn, họp sinh động hơn, chốt nhanh hơn.",
-    desc: "Một buổi training thực hành, thiết kế riêng theo ngành và cách làm việc của team bạn. Không phải lớp vẽ cho vui — mục tiêu là sau buổi học, mọi người dùng được hình ảnh ngay trong công việc hằng ngày.",
+    desc: "Một buổi training thực hành, thiết kế riêng theo ngành và cách làm việc của team bạn. Không phải lớp vẽ cho vui. Mục tiêu là sau buổi học, mọi người dùng được hình ảnh ngay trong công việc hằng ngày.",
     forWho: ["Team 10–30 người", "Phòng ban hay phải họp và trình bày ý tưởng", "Công ty muốn một hoạt động gắn kết mà ai cũng tham gia được"],
     benefits: ["<strong>Nhớ lâu hơn:</strong> xử lý bằng cả chữ lẫn hình nên đọng lại lâu hơn ghi chép thuần chữ", "<strong>Họp sinh động hơn:</strong> mọi người vẽ ý lên bảng, ai cũng nhìn thấy cùng một thứ", "<strong>Chốt nhanh hơn:</strong> vấn đề được vẽ ra thì điểm mắc lộ ngay", "<strong>Onboarding dễ hơn:</strong> quy trình phức tạp gói vào một trang sơ đồ"],
     formats: ["Offline tại công ty", "Online qua Zoom/Meet", "Nửa ngày", "Trọn ngày", "Team building"],
@@ -86,7 +86,7 @@ const SERVICES = [
     title: "Live recording sự kiện",
     image: "assets/illustrations/note-live.svg",
     short: "Mình vẽ trực tiếp tại sự kiện, biến nội dung diễn giả thành một bức tranh tổng hợp.",
-    desc: "Mình có mặt tại sự kiện và vẽ trong lúc chương trình diễn ra. Khi diễn giả nói xong, bức tranh cũng vừa hoàn thành — toàn bộ nội dung được tóm lại thành một tấm hình mà khách có thể đứng xem, chụp ảnh và chia sẻ.",
+    desc: "Mình có mặt tại sự kiện và vẽ trong lúc chương trình diễn ra. Khi diễn giả nói xong, bức tranh cũng vừa hoàn thành: toàn bộ nội dung được tóm lại thành một tấm hình mà khách có thể đứng xem, chụp ảnh và chia sẻ.",
     forWho: ["Hội thảo, toạ đàm, workshop chuyên môn", "Lễ ra mắt sản phẩm, sự kiện thương hiệu", "Họp chiến lược, kick-off dự án, town hall nội bộ", "Sự kiện trường học, ngày hội hướng nghiệp"],
     benefits: ["Bản vẽ gốc khổ lớn để trưng bày tại sự kiện", "File số độ phân giải cao cho truyền thông, báo cáo sau sự kiện", "Một điểm nhấn để khách dừng lại, chụp ảnh và nhớ tới chương trình", "Tuỳ chọn: video tua nhanh quá trình vẽ để đăng mạng xã hội"],
     formats: ["Vẽ trên giấy khổ lớn", "Vẽ số hoá chiếu màn hình", "Online (sự kiện Zoom)"],
@@ -98,7 +98,7 @@ const SERVICES = [
     title: "Vẽ theo yêu cầu",
     image: "assets/illustrations/note-custom.svg",
     short: "Nhận vẽ sách, vẽ ly, vẽ minh hoạ và các sản phẩm đặt riêng theo ý bạn.",
-    desc: "Bạn cần một hình vẽ riêng chứ không phải một buổi học? Mình nhận vẽ theo yêu cầu — từ minh hoạ cho sách, vẽ lên ly và sổ tay, tới bộ hình cho thương hiệu. Trao đổi ý tưởng trước, mình gửi phác thảo để bạn duyệt rồi mới hoàn thiện.",
+    desc: "Bạn cần một hình vẽ riêng chứ không phải một buổi học? Mình nhận vẽ theo yêu cầu: từ minh hoạ cho sách, vẽ lên ly và sổ tay, tới bộ hình cho thương hiệu. Trao đổi ý tưởng trước, mình gửi phác thảo để bạn duyệt rồi mới hoàn thiện.",
     forWho: ["Tác giả, nhà xuất bản cần minh hoạ cho sách", "Quán cà phê, cửa hàng cần vẽ lên ly, menu, bảng hiệu", "Người muốn đặt quà tặng vẽ tay cho dịp đặc biệt", "Thương hiệu cần bộ minh hoạ đồng bộ"],
     benefits: ["<strong>Vẽ sách:</strong> minh hoạ bìa, minh hoạ nội dung, sơ đồ tóm tắt chương", "<strong>Vẽ ly:</strong> vẽ tay lên ly, bình, sổ tay, túi vải", "<strong>Vẽ minh hoạ:</strong> hình cho bài viết, slide, ấn phẩm truyền thông", "File số độ phân giải cao, dùng được cho cả in ấn"],
     formats: ["Vẽ tay trên giấy", "Vẽ số hoá", "Vẽ trực tiếp lên sản phẩm", "Trọn bộ nhiều hình"],
@@ -126,7 +126,7 @@ const COURSES = [
   }
 ];
 
-/* 7) Feedback học viên — chỉ hiển thị chữ, không kèm ảnh */
+/* 7) Feedback học viên, chỉ hiển thị chữ, không kèm ảnh */
 const FEEDBACKS = [
   {
     name: "Minh Anh",
